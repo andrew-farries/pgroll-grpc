@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package pgroll;
+
+option go_package = "github.com/andrew-farries/pgroll-grpc/proto";
+
+service PGRoll {
+  rpc Start (StartRequest) returns (stream StartResponse) {}
+  rpc Complete (CompleteRequest) returns (CompleteResponse) {}
+  rpc Rollback (RollbackRequest) returns (RollbackResponse) {}
+}
+
+message StartRequest {
+  string migration = 1;
+}
+
+message StartResponse {
+  string message = 1;
+}
+
+message CompleteRequest {
+}
+
+message CompleteResponse {
+}
+
+message RollbackRequest {
+}
+
+message RollbackResponse {
+}
